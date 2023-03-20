@@ -13,6 +13,8 @@ function App() {
   const theme = createTheme(themeSettings(mode), [mode]);
 
   console.log(mode);
+  console.log("dotenv", import.meta.env.VITE_API_URL);
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>

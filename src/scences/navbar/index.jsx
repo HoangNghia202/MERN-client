@@ -38,11 +38,20 @@ const Navbar = () => {
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
-  const alt = theme.palette.primary.alt;
+  const alt = theme.palette.background.alt;
   const fullName = user?.firstName + " " + user?.lastName;
   console.log("toggle", isMobileMenuToggle);
+  const logoutUser = () => {
+    console.log("logout");
+  };
   return (
-    <FlexBetween padding={"1rem 6%"} backgroundColor={alt}>
+    <FlexBetween
+      padding={".7rem 6%"}
+      backgroundColor={alt}
+      position="fixed"
+      width={"100%"}
+      zIndex="100"
+    >
       <FlexBetween gap={"1.75rem"}>
         <Typography
           fontWeight={"bold"}
@@ -169,9 +178,18 @@ const Navbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
-                  <MenuItem>
+                  <MenuItem
+                    onSelect={() => {
+                      logoutUser();
+                    }}
+                  >
                     <Typography>
-                      <Logout /> Log Out
+                      <Logout
+                        onClick={() => {
+                          logoutUser();
+                        }}
+                      />
+                      Log Out
                     </Typography>
                   </MenuItem>
                 </Select>
