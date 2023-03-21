@@ -10,7 +10,7 @@ import { addRemoveFriend } from "../services/userServices";
 import { setFriends } from "../state";
 const Friend = (props) => {
   console.log("props in friend>>", props);
-  const { friendId, name, subtitle, userPicturePath } = props;
+  const { friendId, name, subtitle, userPicturePath, type } = props;
   console.log(
     "friendId, name, subtitle, userPicturePath>>",
     friendId,
@@ -27,6 +27,7 @@ const Friend = (props) => {
   const primaryDark = palette.primary.dark;
   const primaryLight = palette.primary.light;
   const main = palette.neutral.main;
+  const light = palette.neutral.light;
   const medium = palette.neutral.medium;
 
   const isFriend = friends.find((friend) => friend._id === friendId);
@@ -41,7 +42,14 @@ const Friend = (props) => {
     }
   };
   return (
-    <FlexBetween mb="1rem">
+    <FlexBetween
+      mb="1rem"
+      padding={"0.5rem"}
+      sx={{
+        "&:hover": { backgroundColor: type === "post" ? null : light },
+        borderRadius: "0.5rem",
+      }}
+    >
       <Box
         display={"flex"}
         alignItems="center"

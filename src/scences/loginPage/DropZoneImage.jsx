@@ -41,7 +41,6 @@ function DropZoneImage(props) {
 
   const clearImgInput = () => {
     console.log("clearImg");
-
     setFiles([]);
   };
 

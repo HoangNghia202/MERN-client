@@ -52,6 +52,7 @@ const PostWidget = (props) => {
         name={name}
         subtitle={location}
         userPicturePath={userPicturePath}
+        type={"post"}
       ></Friend>
       <Typography variant="body1" color={main} mt="1rem">
         {description}

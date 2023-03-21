@@ -29,7 +29,7 @@ import {
 
 const MyPostWidget = (props) => {
   console.log("props my widget>>", props);
-  const { picturePath } = props;
+  const { picturePath, alertMessage } = props;
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
@@ -56,6 +56,9 @@ const MyPostWidget = (props) => {
       setImage(null);
       setPost("");
       setIsImage(false);
+      alertMessage("Post created successfully", "success");
+    } else {
+      alertMessage("Post created successfully", "error");
     }
   };
 
@@ -65,21 +68,23 @@ const MyPostWidget = (props) => {
 
   return (
     <WidgetWrapper>
-      <FlexBetween gap={"1.5rem"}>
+      <Box display={"flex"} gap={"1.5rem"}>
         <UserImage img={picturePath} />
-        <InputBase
-          placeholder="What's on your mind?"
-          multiline
-          value={post}
-          onChange={(e) => setPost(e.target.value)}
-          sx={{
-            padding: "1rem 2rem",
-            backgroundColor: palette.neutral.light,
-            borderRadius: "1.5rem",
-            width: "100%",
-          }}
-        />
-      </FlexBetween>
+        <Box width="80%">
+          <InputBase
+            placeholder="What's on your mind?"
+            multiline
+            value={post}
+            onChange={(e) => setPost(e.target.value)}
+            fullWidth
+            sx={{
+              padding: "1rem 2rem",
+              backgroundColor: palette.neutral.light,
+              borderRadius: "1.5rem",
+            }}
+          />
+        </Box>
+      </Box>
       <Box my={"1.5rem"}>
         {isImage && (
           <DropZoneImage
