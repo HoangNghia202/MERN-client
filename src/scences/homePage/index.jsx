@@ -5,6 +5,7 @@ import UserWidget from "../widgets/UserWidget";
 import MyPostWidget from "../widgets/MyPostWidget";
 import NewFeedWidget from "../widgets/NewFeedWidget";
 import FriendListWidget from "../widgets/FriendListWidget";
+import AdvertWidget from "../widgets/AdvertWidget";
 const HomePage = () => {
   const userId = useSelector((state) => state.user._id);
   const picturePath = useSelector((state) => state.user.picturePath);
@@ -25,6 +26,7 @@ const HomePage = () => {
           <NewFeedWidget></NewFeedWidget>
         </div>
         <div className="col-span-1">
+          <AdvertWidget />
           <FriendListWidget />
         </div>
       </div>

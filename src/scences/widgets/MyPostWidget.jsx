@@ -55,6 +55,7 @@ const MyPostWidget = (props) => {
       dispatch(setPosts(res.data));
       setImage(null);
       setPost("");
+      setIsImage(false);
     }
   };
 
@@ -64,8 +65,8 @@ const MyPostWidget = (props) => {
 
   return (
     <WidgetWrapper>
-      <FlexBetween ga p={"1.5rem"}>
-        <UserImage img={picturePath} size={"60px"} />
+      <FlexBetween gap={"1.5rem"}>
+        <UserImage img={picturePath} />
         <InputBase
           placeholder="What's on your mind?"
           multiline

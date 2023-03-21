@@ -7,6 +7,7 @@ import PostWidget from "./PostWidget";
 const NewFeedWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
+
   const token = useSelector((state) => state.token);
   const getListPosts = async () => {
     if (isProfile) {
@@ -28,7 +29,7 @@ const NewFeedWidget = ({ userId, isProfile = false }) => {
   console.log("posts>>", posts);
 
   return (
-    <div className="mt-[3rem]">
+    <div className="mt-[2rem]">
       {posts?.map((item, index) => {
         return (
           <PostWidget

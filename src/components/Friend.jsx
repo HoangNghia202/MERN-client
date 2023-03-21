@@ -11,6 +11,14 @@ import { setFriends } from "../state";
 const Friend = (props) => {
   console.log("props in friend>>", props);
   const { friendId, name, subtitle, userPicturePath } = props;
+  console.log(
+    "friendId, name, subtitle, userPicturePath>>",
+    friendId,
+    name,
+    subtitle,
+    userPicturePath
+  );
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id, friends } = useSelector((state) => state.user);
@@ -22,6 +30,9 @@ const Friend = (props) => {
   const medium = palette.neutral.medium;
 
   const isFriend = friends.find((friend) => friend._id === friendId);
+  const isUser = _id === friendId;
+  console.log("isFriend>>", isFriend);
+  console.log("isUser>>", isUser);
 
   const handleAddRemoveFriend = async () => {
     const res = await addRemoveFriend(token, _id, friendId);
@@ -35,8 +46,9 @@ const Friend = (props) => {
         display={"flex"}
         alignItems="center"
         onClick={() => navigate(`/user/${friendId}`)}
+        sx={{ cursor: "pointer" }}
       >
-        <UserImage img={userPicturePath}></UserImage>
+        <UserImage img={userPicturePath} size={"50px"}></UserImage>
         <Box ml={"1rem"}>
           <Typography
             color={main}
@@ -49,13 +61,17 @@ const Friend = (props) => {
           <Typography color={medium}>{subtitle}</Typography>
         </Box>
       </Box>
-
+      {}
       <IconButton
         onClick={() => {
           handleAddRemoveFriend();
         }}
       >
-        {isFriend ? <PersonRemoveOutlined /> : <PersonAddOutlined />}
+        {isUser ? null : isFriend ? (
+          <PersonRemoveOutlined />
+        ) : (
+          <PersonAddOutlined />
+        )}
       </IconButton>
     </FlexBetween>
   );

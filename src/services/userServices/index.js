@@ -139,6 +139,30 @@ export const getUserPosts = async (token, userId) => {
   }
 };
 
+export const getFriends = async (token, userId) => {
+  // router.get("/:id/friends", verifyToken, getUserFriend);
+  try {
+    const res = await axios.get(`${apiUrl}/user/${userId}/friends`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (res.status === 200) {
+      return {
+        error: false,
+        data: res.data,
+        message: "Friends found",
+      };
+    }
+  } catch (error) {
+    console.log("error", error);
+    return {
+      error: true,
+      message: error.response.data.message,
+    };
+  }
+};
+
 export const addRemoveFriend = async (token, userId, friendId) => {
   try {
     const res = await axios.patch(
