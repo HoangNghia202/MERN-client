@@ -44,13 +44,13 @@ const UserWidget = (props) => {
   console.log("user>>", user);
 
   return (
-    <WidgetWrapper position={"fixed"}>
+    <WidgetWrapper>
       <FlexBetween
-        gap={"0.5rem"}
+        gap={"1.4rem"}
         pb={"1.1rem"}
-        onClick={() => navigate(`/profile/${userId}`)}
+        onClick={() => navigate(`/user/${userId}`)}
       >
-        <UserImage img={picturePath}></UserImage>
+        <UserImage img={user.picturePath}></UserImage>
         <Box>
           <Typography
             variant="h6"

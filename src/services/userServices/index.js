@@ -123,7 +123,7 @@ export const getUserPosts = async (token, userId) => {
       },
     });
     if (res.status === 200) {
-      console.log("res get post", res.data);
+      console.log("res get post user", res.data);
       return {
         error: false,
         data: res.data,

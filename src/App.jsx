@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ThemeProvider, CssBaseline, createTheme } from "@mui/material";
 import { themeSettings } from "./theme";
+import DirectToPage from "./scences/DirectToPage";
 import { useMemo } from "react";
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -21,9 +22,11 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
+            <Route path="/" element={<DirectToPage />} />
             <Route path="/home" element={<Homepage />} />
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<ProfilePage />} />
+            <Route path="/user/:id" element={<ProfilePage />} />
           </Routes>
         </Router>
       </ThemeProvider>

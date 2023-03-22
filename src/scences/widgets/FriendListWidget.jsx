@@ -27,7 +27,7 @@ const FriendListWidget = (props) => {
   console.log("friends>>", friends);
 
   return (
-    <WidgetWrapper position={"sticky"} top="5rem">
+    <WidgetWrapper>
       <Box>
         {friends.map((friend, index) => {
           return (

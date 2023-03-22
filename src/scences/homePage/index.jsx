@@ -37,24 +37,31 @@ const HomePage = () => {
         {" "}
         assss
       </Button> */}
-      <div className=" md:px-[6%] grid grid-cols-4 md:gap-4 ">
-        <div className="">
-          <UserWidget
-            userId={userId}
-            picturePath={picturePath}
-            alertMessage={handleOpenCloseSnackbar}
-          />
+      <div className="px-[5%] md:px-[6%] grid sm:grid-cols-1 lg:grid-cols-4 md:gap-4 ">
+        <div className="hidden lg:block lg:col-span-1">
+          <div className="fixed">
+            <UserWidget
+              userId={userId}
+              picturePath={picturePath}
+              alertMessage={handleOpenCloseSnackbar}
+            />
+          </div>
         </div>
-        <div className="col-span-2">
-          <MyPostWidget
-            picturePath={picturePath}
-            alertMessage={handleOpenCloseSnackbar}
-          />
+        <div className="lg:col-span-2">
+          <div className="mb-[1rem]">
+            <MyPostWidget
+              picturePath={picturePath}
+              alertMessage={handleOpenCloseSnackbar}
+            />
+          </div>
+
           <NewFeedWidget></NewFeedWidget>
         </div>
-        <div className="col-span-1">
+        <div className="hidden lg:block lg:col-span-1">
           <AdvertWidget />
-          <FriendListWidget />
+          <div className="sticky top-[5rem]">
+            <FriendListWidget />
+          </div>
         </div>
       </div>
       <DirectionSnackbar

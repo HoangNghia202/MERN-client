@@ -4,10 +4,11 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { getUserPosts, getPosts } from "../../services/userServices";
 import { setPosts } from "../../state";
 import PostWidget from "./PostWidget";
-const NewFeedWidget = ({ userId, isProfile = false }) => {
+const NewFeedWidget = ({ userId, isProfile }) => {
+  console.log("props in NewFeedWidget>>", userId, isProfile, "<<");
+
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-
   const token = useSelector((state) => state.token);
   const getListPosts = async () => {
     if (isProfile) {
@@ -29,7 +30,7 @@ const NewFeedWidget = ({ userId, isProfile = false }) => {
   console.log("posts>>", posts);
 
   return (
-    <div className="mt-[2rem]">
+    <div>
       {posts?.map((item, index) => {
         return (
           <PostWidget

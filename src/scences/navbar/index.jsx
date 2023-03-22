@@ -41,8 +41,11 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
   const fullName = user?.firstName + " " + user?.lastName;
   console.log("toggle", isMobileMenuToggle);
+
   const logoutUser = () => {
     console.log("logout");
+    dispatch(setLogout());
+    navigate("/login");
   };
   return (
     <FlexBetween
@@ -51,6 +54,7 @@ const Navbar = () => {
       position="fixed"
       width={"100%"}
       zIndex="100"
+      borderBottom={`1px solid ${neutralLight}`}
     >
       <FlexBetween gap={"1.75rem"}>
         <Typography
@@ -115,7 +119,7 @@ const Navbar = () => {
                   <Typography>{fullName}</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography>
+                  <Typography onClick={logoutUser}>
                     <Logout /> Log Out
                   </Typography>
                 </MenuItem>
@@ -178,17 +182,13 @@ const Navbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
-                  <MenuItem
-                    onSelect={() => {
-                      logoutUser();
-                    }}
-                  >
-                    <Typography>
-                      <Logout
-                        onClick={() => {
-                          logoutUser();
-                        }}
-                      />
+                  <MenuItem>
+                    <Typography
+                      onClick={() => {
+                        logoutUser();
+                      }}
+                    >
+                      <Logout />
                       Log Out
                     </Typography>
                   </MenuItem>
