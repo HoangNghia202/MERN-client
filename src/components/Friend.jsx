@@ -3,7 +3,7 @@ import UserImage from "./UserImage";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Tooltip, Typography, useTheme } from "@mui/material";
 import FlexBetween from "./FlexBetween";
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { addRemoveFriend } from "../services/userServices";
@@ -76,9 +76,13 @@ const Friend = (props) => {
         }}
       >
         {isUser ? null : isFriend ? (
-          <PersonRemoveOutlined />
+          <Tooltip title="Unfriend ">
+            <PersonRemoveOutlined />
+          </Tooltip>
         ) : (
-          <PersonAddOutlined />
+          <Tooltip title="Send request friend">
+            <PersonAddOutlined />
+          </Tooltip>
         )}
       </IconButton>
     </FlexBetween>

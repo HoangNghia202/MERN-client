@@ -2,7 +2,7 @@ import React from "react";
 import { patchLike } from "../../services/userServices";
 import { setPost } from "../../state";
 import WidgetWrapper from "../../components/WidgetWrapper";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import Friend from "../../components/Friend";
 import FlexBetween from "../../components/FlexBetween";
 import { useDispatch, useSelector } from "react-redux";
@@ -66,6 +66,7 @@ const PostWidget = (props) => {
           />
         )}
       </Box>
+      <Divider sx={{ margin: "1rem 0" }} />
       <FlexBetween>
         <FlexBetween>
           <IconButton onClick={likeUnLikePost} color={isLiked ? "error" : ""}>

@@ -18,10 +18,10 @@ const ProfilePage = () => {
         <div className="col-span-1">
           <div className="">
             <div className="mb-[2rem]">
-              <UserWidget userId={id} />
+              <UserWidget otherUserId={id} isOtherUserProfile={true} />
             </div>
             <div className="sticky top-[2rem]">
-              <FriendListWidget />
+              <FriendListWidget otherUserId={id} isOtherUserProfile={true} />
             </div>
           </div>
         </div>

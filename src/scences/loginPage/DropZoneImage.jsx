@@ -12,13 +12,9 @@ const thumb = {
   display: "flex",
   flexDirection: "column",
   borderRadius: 2,
-  border: "1px solid #eaeaea",
   marginBottom: 8,
   marginRight: 8,
-  width: 150,
-  height: 100,
-  padding: 4,
-
+  maxWidth: 100,
   boxSizing: "border-box",
 };
 
