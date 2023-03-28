@@ -15,7 +15,7 @@ const HomePage = () => {
   const [snackbar, setSnackbar] = React.useState({
     isOpen: false,
     content: "",
-    type: "info",
+    type: "",
   });
   const handleOpenCloseSnackbar = (content, type) => {
     setSnackbar({
