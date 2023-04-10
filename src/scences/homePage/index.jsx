@@ -21,7 +21,7 @@ const HomePage = () => {
     setSnackbar({
       isOpen: !snackbar.isOpen,
       content: content ? content : "",
-      type: type ? type : "info",
+      type: type,
     });
   };
   return (
