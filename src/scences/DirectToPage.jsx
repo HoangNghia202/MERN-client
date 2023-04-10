@@ -5,11 +5,12 @@ const DirectToPage = (props) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const checkUser = () => {
-    if (user) {
-      navigate("/home");
-    } else {
-      navigate("/login");
-    }
+    // if (user) {
+    //   navigate("/home");
+    // } else {
+    //   navigate("/login");
+    // }
+    navigate("/login");
   };
   useEffect(() => {
     checkUser();
